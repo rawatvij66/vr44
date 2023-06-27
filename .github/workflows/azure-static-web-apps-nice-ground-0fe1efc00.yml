@@ -1,45 +1,72 @@
 name: Azure Static Web Apps CI/CD
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened, closed]
-    branches:
-      - main
-
-jobs:
-  build_and_deploy_job:
-    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    runs-on: ubuntu-latest
-    name: Build and Deploy Job
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Build And Deploy
-        id: builddeploy
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_GROUND_0FE1EFC00 }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
-          action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/vr44/src" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "/src" # Built app content directory - optional
-          ###### End of Repository/Build Configurations ######
-
-  close_pull_request_job:
-    if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    name: Close Pull Request Job
-    steps:
-      - name: Close Pull Request
-        id: closepullrequest
-        uses: Azure/static-web-apps-deploy@v1
-        with:
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_GROUND_0FE1EFC00 }}
-          action: "close"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static web page </title>
+    <style>
+        .set{
+            width: -6vw;
+            padding-left: 158px;
+        }
+        .first{
+            color: white;
+            background-color: aqua;
+            max-width:500px;
+            min-width: 300px;
+            margin: 0 auto;  border-radius: 2cm;
+            border-style: double;
+            border-width: 50px;
+        }
+        h1{
+            color: aliceblue;
+            background-color: yellow;
+            margin :0 auto;
+            padding-left: 10vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+        <h1>This is the 6th assignment </h1>
+            <div>
+             <marquee><h1>Fill in your detail for further procedure</h1></marquee>
+            </div>
+            <div class="set">
+                <p><b>Enter your name below</b></p>
+                <input type="text" placeholder="Enter your name "> <br><br>
+                <p><b>Enter your email id</b></p>
+                <input type="email" placeholder="Enter"><br><br>
+                <p><b>Enter your roll no</b></p>
+                <input type="number" placeholder="Enter"><br><br>
+                <p style="size: 20px;"><b>Enter your birth-date</b><br>
+                <input type="date"><br><br>
+            </p>
+                <input type="radio" value="Class 11" name="class">Class IX
+                <input type="radio" value="CLass 12" name="class">Class X<br><br>
+                <p>favourite subject</p>
+            <label>
+                <input type="checkbox" height="10px">PHYSICS<br>
+                <input type="checkbox" >MATHS<br>
+                <input type="checkbox" >CHEMISTRY<br>
+                <input type="checkbox" >ENGLISH<br><br>
+            </label>
+                <select name="city" id="city" placeholder="select your state">
+                    <option>maharashtra</option>
+                    <option>delhi</option>
+                    <option>Andhra Pradesh</option>
+                    <option>Arunachal Pradesh</option>
+                    <option>Assam</option>
+                    <option>Bihar</option>
+                    <option>Chhattisgarh</option>
+                    <option>Goa</option>
+                    <option>Gujarat</option>
+                    <option>Haryana</option>
+                    <option>delhi</option>
+                </select><br><br>
+                <textarea name=" feedback" id="101" placeholder="Please give your feedback"></textarea><br><br>
+                <input type="submit"></p>
+    </div>
+</body>
+</html>
